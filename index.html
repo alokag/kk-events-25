@@ -31,8 +31,12 @@
         .container {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 20px;
+            padding: 5px;
         }
+		h1,h2{
+			margin:0;
+			padding:0;
+		}
 
         header {
             background: linear-gradient(135deg, #ff7e5f, #feb47b, #ffb347); /* Vibrant Gradient */
@@ -260,8 +264,8 @@
 <body>
     <header>
         <div class="container">
-            <h1>Ganesh Utsav (Keshav kunj) 2025</h1>
-            <p>A fun-filled extravaganza at Keshav Kunj Society</p>
+            <h1>Ganesh Utsav 2025</h1>
+            <h2>33,Keshav Kunj Society</h2>
         </div>
     </header>
 
@@ -295,41 +299,41 @@
             {
                 date: "23rd Aug, Sat",
                 items: [
-                    { name: "Blood donation camp 💉🩸", time: "10am-1pm", hasLink: true },
-                    { name: "Sports (Indoor games) ♟️🏓🏃", time: "", hasLink: true }
+                    { name: "Blood donation camp 💉🩸", time: "10am-1pm", hasLink: false },
+                    { name: "Sports (Indoor games) ♟️🏓🏃", time: "9am Onwards", hasLink: true, link: "https://forms.gle/bYgs7EEdaytEtLKX8" }
                 ]
             },
             {
                 date: "24th Aug, Sun",
                 items: [
-                    { name: "Sports (Outdoor games) ⚽️🏀🏏", time: "", hasLink: true }
+                    { name: "Sports (Outdoor games) ⚽️🏀🏏", time: "9am Onwards", hasLink: true, link:"https://forms.gle/bYgs7EEdaytEtLKX8" }
                 ]
             },
             {
                 date: "27th Aug, Wed",
                 items: [
-                    { name: "Lorry Decoration 🌸🌻🌷🏵", time: "Morning", hasLink: true },
-                    { name: "Dhol Tasha and Ladies Lezim Performance 🌹💐🥁", time: "3pm onwards", hasLink: true },
+                    { name: "Lorry Decoration 🌸🌻🌷🏵", time: "Morning", hasLink: false },
+                    { name: "Dhol Tasha and Ladies Lezim Performance 🌹💐🥁", time: "3pm onwards", hasLink: false },
                     { name: "Ganpati sthapna pooja", time: "7:30pm", hasLink: false }
                 ]
             },
             {
                 date: "28th Aug, Thur",
                 items: [
-                    { name: "Musical chair 🎶🪑🏃‍♀️🎵", time: "After Even. Aarti", hasLink: true }
+                    { name: "Musical chair 🎶🪑🏃‍♀️🎵", time: "After Evening Aarti", hasLink: false }
                 ]
             },
             {
                 date: "29th Aug, Fri",
                 items: [
-                    { name: "Treasure hunt 🔎💡💰", time: "After Even. Aarti", hasLink: true }
+                    { name: "Treasure hunt 🔎💡💰", time: "After Evening Aarti", hasLink: false }
                 ]
             },
             {
                 date: "30th Aug, Sat",
                 items: [
-                    { name: "Rangoli and Drawing competition 🍀🪷🎨", time: "11am - 1pm", hasLink: true },
-                    { name: "Cultural Night 👯‍♂️🕺💃", time: "", hasLink: true }
+                    { name: "Rangoli and Drawing competition 🍀🪷🎨", time: "11am - 1pm", hasLink: false },
+                    { name: "Cultural Night 👯‍♂️🕺💃", time: "After Evening Aarti", hasLink: true, link: "https://forms.gle/8QftsNtSeLKM1Yzu7" }
                 ]
             },
             {
@@ -337,31 +341,31 @@
                 items: [
                     { name: "Medical Camp 🩺💊", time: "10am-1pm", hasLink: false },
                     { name: "Bhandara 😋🥘", time: "12pm-3pm", hasLink: false },
-                    { name: "Fancy dress and Ramp walk 💃😎🦹‍♀️", time: "After Even. Aarti", hasLink: true }
+                    { name: "Fancy dress and Ramp walk 💃😎🦹‍♀️", time: "After Evening Aarti", hasLink: true, link:"https://forms.gle/kMMsQcwibJkx4ohQ9" }
                 ]
             },
             {
                 date: "1st Sep, Mon",
                 items: [
-                    { name: "Antakshri 🎤🧑‍🎤", time: "After Even. Aarti", hasLink: true }
+                    { name: "Antakshri 🎤🧑‍🎤", time: "After Evening Aarti", hasLink: true, link:" https://forms.gle/zinMcdEmFM7XkNaHA" }
                 ]
             },
             {
                 date: "2nd Sep, Tue",
                 items: [
-                    { name: "Lemon n Spoon 🥄🍋", time: "After Even. Aarti", hasLink: true }
+                    { name: "Lemon n Spoon 🥄🍋", time: "After Evening Aarti", hasLink: false }
                 ]
             },
             {
                 date: "3rd Sep, Wed",
                 items: [
-                    { name: "Karaoke Night 🎤🎶🎼", time: "After Even. Aarti", hasLink: true }
+                    { name: "Karaoke Night 🎤🎶🎼", time: "After Evening Aarti", hasLink: true, link: "https://forms.gle/Vy57YXk8vGTNYNSB8" }
                 ]
             },
             {
                 date: "4th Sep, Thu",
                 items: [
-                    { name: "Surprise games for All 🥳🥳", time: "After Even. Aarti", hasLink: false }
+                    { name: "Surprise games for All 🥳🥳", time: "After Evening Aarti", hasLink: false }
                 ]
             },
             {
@@ -373,16 +377,17 @@
             {
                 date: "6th Sep, Sat",
                 items: [
-                    { name: "Prize Distribution and Gift Distribution 🥉🥈🥇🏆", time: "12pm-2pm", hasLink: false },
+                    { name: "Prize and Gift Distribution 🥉🥈🥇🏆", time: "12pm-2pm", hasLink: false },
                     { name: "Ganesh Visarjan 🥁🥁", time: "3pm onwards", hasLink: false }
                 ]
             }
         ];
 
         const contactData = [
-            { name: "Ramesh Sharma", number: "+91 98765 43210" },
-            { name: "Priya Singh", number: "+91 87654 32109" },
-            { name: "Anil Kumar", number: "+91 76543 21098" }
+		{ name: "Saurabh", number: "9096767484" },
+            { name: "Anshuman", number: "9730446684" },
+            { name: "Kishor", number: "9326870096" },
+
         ];
 
         const eventListContainer = document.getElementById('event-list');
@@ -436,7 +441,7 @@
             const formLink = document.createElement('a');
             formLink.className = 'form-link';
             formLink.textContent = 'Form Link';
-            formLink.href = '#'; // Replace '#' with actual registration form link
+            formLink.href = item.link; // Replace '#' with actual registration form link
             formLink.target = '_blank';
             listItem.appendChild(formLink);
 
