@@ -422,6 +422,17 @@
                     timeP.textContent = item.time;
                     detailsDiv.appendChild(timeP);
                 }
+				if (item.hasLink) {
+                    const listItem = document.createElement('div');
+					listItem.className = 'form-list-item';
+					const formLink = document.createElement('a');
+					formLink.className = 'form-link';
+					formLink.textContent = 'Form Link';
+					formLink.href = item.link; // Replace '#' with actual registration form link
+					formLink.target = '_blank';
+					listItem.appendChild(formLink);
+                    detailsDiv.appendChild(listItem);
+                }
 
                 itemDiv.appendChild(detailsDiv);
                 card.appendChild(itemDiv);
