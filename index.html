@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ganesh Utsav 2025 - Keshav Kunj</title>
+    <style>
+        :root {
+            --primary-color: #d35400; /* Vibrant Orange-Red */
+            --accent-color: #f39c12; /* Golden Yellow */
+            --light-bg-color: #ffeaa7; /* Light Gold background */
+            --dark-text-color: #2c3e50; /* Deep Blue-Gray */
+            --container-bg-color: #ffffff;
+            --box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+            --border-radius: 12px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--light-bg-color);
+            color: var(--dark-text-color);
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        header {
+            background: linear-gradient(135deg, #ff7e5f, #feb47b, #ffb347); /* Vibrant Gradient */
+            color: white;
+            padding: 100px 20px;
+            text-align: center;
+            border-bottom: 5px solid var(--primary-color);
+            position: relative;
+        }
+
+        header::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.1);
+            z-index: 1;
+        }
+
+        header > * {
+            position: relative;
+            z-index: 2;
+        }
+
+        header h1 {
+            font-size: clamp(2rem, 5vw, 4rem);
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
+        }
+
+        header p {
+            font-size: clamp(1rem, 2vw, 1.5rem);
+            font-style: italic;
+            opacity: 0.9;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+        }
+
+        .section {
+            padding: 40px 0;
+        }
+
+        .section h2 {
+            text-align: center;
+            font-size: clamp(1.8rem, 4vw, 3rem);
+            color: var(--primary-color);
+            margin-bottom: 30px;
+            position: relative;
+            background-color: var(--container-bg-color);
+            padding: 10px 20px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            display: inline-block;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .section h2::after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 4px;
+            background-color: var(--accent-color);
+            margin: 10px auto 0;
+            border-radius: 2px;
+        }
+
+        .event-list, .form-list, .contact-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+        }
+        
+        .event-card, .form-card, .contact-card {
+            background-color: var(--container-bg-color);
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            padding: 25px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+            border: 2px solid var(--accent-color);
+            overflow: hidden;
+            text-align: center;
+        }
+
+        .event-card:hover, .form-card:hover, .contact-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 10px 15px rgba(0, 0, 0, 0.25);
+        }
+        
+        .event-date {
+            font-size: 1.3rem;
+            font-weight: bold;
+            color: var(--primary-color);
+            border-bottom: 3px solid var(--accent-color);
+            padding-bottom: 10px;
+            margin-bottom: 15px;
+            text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.1);
+        }
+
+        .event-item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 15px;
+            flex-wrap: wrap;
+        }
+
+        .event-name {
+            font-weight: bold;
+            font-size: 1.1rem;
+            color: var(--dark-text-color);
+        }
+        
+        .event-time {
+            color: #7f8c8d;
+            font-style: italic;
+        }
+        
+        .form-card h3, .contact-card h3 {
+            font-size: 1.2rem;
+            color: var(--primary-color);
+            margin-bottom: 10px;
+        }
+        
+        .contact-card p {
+            margin: 5px 0;
+            color: var(--dark-text-color);
+        }
+        
+        .contact-card a {
+            color: #3498db;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+        
+        .contact-card a:hover {
+            color: var(--primary-color);
+        }
+        
+        .form-link {
+            display: inline-block;
+            background-color: #3498db; /* Peacock Blue */
+            color: white;
+            text-decoration: none;
+            padding: 10px 20px;
+            border-radius: 50px;
+            font-size: 1rem;
+            font-weight: bold;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            margin-top: 15px;
+        }
+
+        .form-link:hover {
+            background-color: #2980b9;
+            transform: scale(1.05);
+        }
+
+        footer {
+            text-align: center;
+            padding: 30px 20px;
+            background-color: var(--dark-text-color);
+            color: white;
+            font-size: 0.9rem;
+            margin-top: 20px;
+        }
+
+        @media (max-width: 600px) {
+            .event-item {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Ganesh Utsav 2025</h1>
+            <p>A fun-filled extravaganza at Keshav Kunj Society</p>
+        </div>
+    </header>
+
+    <main class="container">
+        <section class="section">
+            <h2>Event Schedule</h2>
+            <div id="event-list" class="event-list"></div>
+        </section>
+
+        <section class="section">
+            <h2>Event Registration Forms</h2>
+            <div id="form-list" class="form-list"></div>
+        </section>
+
+        <section class="section">
+            <h2>Contact Persons</h2>
+            <div id="contact-list" class="contact-list"></div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 33 Keshavkunj Festival Committee. All Rights Reserved.</p>
+    </footer>
+
+    <script>
+        const eventsData = [
+            {
+                date: "23rd Aug, Sat",
+                items: [
+                    { name: "Blood donation camp 💉🩸", time: "10am-1pm", hasLink: true },
+                    { name: "Sports (Indoor games) ♟️🏓🏃", time: "", hasLink: true }
+                ]
+            },
+            {
+                date: "24th Aug, Sun",
+                items: [
+                    { name: "Sports (Outdoor games) ⚽️🏀🏏", time: "", hasLink: true }
+                ]
+            },
+            {
+                date: "27th Aug, Wed",
+                items: [
+                    { name: "Lorry Decoration 🌸🌻🌷🏵", time: "Morning", hasLink: true },
+                    { name: "Dhol Tasha and Ladies Lezim Performance 🌹💐🥁", time: "3pm onwards", hasLink: true },
+                    { name: "Ganpati sthapna pooja", time: "7:30pm", hasLink: false }
+                ]
+            },
+            {
+                date: "28th Aug, Thur",
+                items: [
+                    { name: "Musical chair 🎶🪑🏃‍♀️🎵", time: "After Even. Aarti", hasLink: true }
+                ]
+            },
+            {
+                date: "29th Aug, Fri",
+                items: [
+                    { name: "Treasure hunt 🔎💡💰", time: "After Even. Aarti", hasLink: true }
+                ]
+            },
+            {
+                date: "30th Aug, Sat",
+                items: [
+                    { name: "Rangoli and Drawing competition 🍀🪷🎨", time: "11am - 1pm", hasLink: true },
+                    { name: "Cultural Night 👯‍♂️🕺💃", time: "", hasLink: true }
+                ]
+            },
+            {
+                date: "31st Aug, Sun",
+                items: [
+                    { name: "Medical Camp 🩺💊", time: "10am-1pm", hasLink: false },
+                    { name: "Bhandara 😋🥘", time: "12pm-3pm", hasLink: false },
+                    { name: "Fancy dress and Ramp walk 💃😎🦹‍♀️", time: "After Even. Aarti", hasLink: true }
+                ]
+            },
+            {
+                date: "1st Sep, Mon",
+                items: [
+                    { name: "Antakshri 🎤🧑‍🎤", time: "After Even. Aarti", hasLink: true }
+                ]
+            },
+            {
+                date: "2nd Sep, Tue",
+                items: [
+                    { name: "Lemon n Spoon 🥄🍋", time: "After Even. Aarti", hasLink: true }
+                ]
+            },
+            {
+                date: "3rd Sep, Wed",
+                items: [
+                    { name: "Karaoke Night 🎤🎶🎼", time: "After Even. Aarti", hasLink: true }
+                ]
+            },
+            {
+                date: "4th Sep, Thu",
+                items: [
+                    { name: "Surprise games for All 🥳🥳", time: "After Even. Aarti", hasLink: false }
+                ]
+            },
+            {
+                date: "5th Sep, Fri",
+                items: [
+                    { name: "Anand Nagari 🍕🍟🍧🍰", time: "7pm-11pm", hasLink: false }
+                ]
+            },
+            {
+                date: "6th Sep, Sat",
+                items: [
+                    { name: "Prize Distribution and Gift Distribution 🥉🥈🥇🏆", time: "12pm-2pm", hasLink: false },
+                    { name: "Ganesh Visarjan 🥁🥁", time: "3pm onwards", hasLink: false }
+                ]
+            }
+        ];
+
+        const contactData = [
+            { name: "Ramesh Sharma", number: "+91 98765 43210" },
+            { name: "Priya Singh", number: "+91 87654 32109" },
+            { name: "Anil Kumar", number: "+91 76543 21098" }
+        ];
+
+        const eventListContainer = document.getElementById('event-list');
+        const formListContainer = document.getElementById('form-list');
+        const contactListContainer = document.getElementById('contact-list');
+
+        function createEventCard(event) {
+            const card = document.createElement('div');
+            card.className = 'event-card';
+
+            const dateHeader = document.createElement('h3');
+            dateHeader.className = 'event-date';
+            dateHeader.textContent = event.date;
+            card.appendChild(dateHeader);
+
+            event.items.forEach(item => {
+                const itemDiv = document.createElement('div');
+                itemDiv.className = 'event-item';
+
+                const detailsDiv = document.createElement('div');
+                detailsDiv.className = 'event-item-details';
+
+                const nameP = document.createElement('p');
+                nameP.className = 'event-name';
+                nameP.textContent = item.name;
+                detailsDiv.appendChild(nameP);
+
+                if (item.time) {
+                    const timeP = document.createElement('p');
+                    timeP.className = 'event-time';
+                    timeP.textContent = item.time;
+                    detailsDiv.appendChild(timeP);
+                }
+
+                itemDiv.appendChild(detailsDiv);
+                card.appendChild(itemDiv);
+            });
+
+            return card;
+        }
+
+        function createFormCard(item) {
+            const card = document.createElement('div');
+            card.className = 'form-card';
+
+            const nameH3 = document.createElement('h3');
+            nameH3.textContent = item.name;
+            card.appendChild(nameH3);
+
+            const formLink = document.createElement('a');
+            formLink.className = 'form-link';
+            formLink.textContent = 'Form Link';
+            formLink.href = '#'; // Replace '#' with actual registration form link
+            formLink.target = '_blank';
+            card.appendChild(formLink);
+
+            return card;
+        }
+        
+        function createContactCard(contact) {
+            const card = document.createElement('div');
+            card.className = 'contact-card';
+
+            const nameH3 = document.createElement('h3');
+            nameH3.textContent = contact.name;
+            card.appendChild(nameH3);
+
+            const numberP = document.createElement('p');
+            const numberLink = document.createElement('a');
+            numberLink.href = `tel:${contact.number.replace(/\s/g, '')}`;
+            numberLink.textContent = contact.number;
+            numberP.textContent = "Mobile: ";
+            numberP.appendChild(numberLink);
+            card.appendChild(numberP);
+
+            return card;
+        }
+
+        eventsData.forEach(event => {
+            const card = createEventCard(event);
+            eventListContainer.appendChild(card);
+        });
+
+        eventsData.forEach(event => {
+            event.items.forEach(item => {
+                if (item.hasLink) {
+                    const card = createFormCard(item);
+                    formListContainer.appendChild(card);
+                }
+            });
+        });
+
+        contactData.forEach(contact => {
+            const card = createContactCard(contact);
+            contactListContainer.appendChild(card);
+        });
+    </script>
+</body>
+</html>
