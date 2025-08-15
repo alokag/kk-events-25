@@ -37,7 +37,7 @@
         header {
             background: linear-gradient(135deg, #ff7e5f, #feb47b, #ffb347); /* Vibrant Gradient */
             color: white;
-            padding: 100px 20px;
+            padding: 40px 20px; /* Reduced header padding */
             text-align: center;
             border-bottom: 5px solid var(--primary-color);
             position: relative;
@@ -60,13 +60,13 @@
         }
 
         header h1 {
-            font-size: clamp(2rem, 5vw, 4rem);
-            margin-bottom: 10px;
+            font-size: clamp(1.8rem, 4vw, 3rem); /* Reduced font size */
+            margin-bottom: 5px;
             text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
         }
 
         header p {
-            font-size: clamp(1rem, 2vw, 1.5rem);
+            font-size: clamp(0.9rem, 1.5vw, 1.2rem);
             font-style: italic;
             opacity: 0.9;
             text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
@@ -100,14 +100,14 @@
             margin: 10px auto 0;
             border-radius: 2px;
         }
-
-        .event-list, .form-list, .contact-list {
+        
+        .event-list {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 25px;
         }
-        
-        .event-card, .form-card, .contact-card {
+
+        .event-card {
             background-color: var(--container-bg-color);
             border-radius: var(--border-radius);
             box-shadow: var(--box-shadow);
@@ -116,10 +116,11 @@
             position: relative;
             border: 2px solid var(--accent-color);
             overflow: hidden;
-            text-align: center;
+            display: flex; /* Centering fix */
+            flex-direction: column;
         }
 
-        .event-card:hover, .form-card:hover, .contact-card:hover {
+        .event-card:hover {
             transform: translateY(-8px);
             box-shadow: 0 10px 15px rgba(0, 0, 0, 0.25);
         }
@@ -152,45 +153,91 @@
             color: #7f8c8d;
             font-style: italic;
         }
-        
+
+        .form-card, .contact-card {
+            background-color: var(--container-bg-color);
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            padding: 25px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 2px solid var(--accent-color);
+        }
+
         .form-card h3, .contact-card h3 {
             font-size: 1.2rem;
             color: var(--primary-color);
             margin-bottom: 10px;
+            text-align: center;
+        }
+
+        .form-list {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .form-list-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px;
+            border-bottom: 1px solid #eee;
         }
         
-        .contact-card p {
+        .form-list-item:last-child {
+            border-bottom: none;
+        }
+
+        .form-link {
+            background-color: #3498db;
+            color: white;
+            text-decoration: none;
+            padding: 8px 15px;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            font-weight: bold;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            white-space: nowrap;
+        }
+
+        .form-link:hover {
+            background-color: #2980b9;
+            transform: scale(1.05);
+        }
+        
+        .contact-list {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .contact-person {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            padding: 10px 0;
+            border-bottom: 1px solid #eee;
+        }
+
+        .contact-person:last-child {
+            border-bottom: none;
+        }
+
+        .contact-person p {
             margin: 5px 0;
             color: var(--dark-text-color);
         }
         
-        .contact-card a {
+        .contact-person a {
             color: #3498db;
             text-decoration: none;
             font-weight: bold;
             transition: color 0.3s;
         }
         
-        .contact-card a:hover {
+        .contact-person a:hover {
             color: var(--primary-color);
-        }
-        
-        .form-link {
-            display: inline-block;
-            background-color: #3498db; /* Peacock Blue */
-            color: white;
-            text-decoration: none;
-            padding: 10px 20px;
-            border-radius: 50px;
-            font-size: 1rem;
-            font-weight: bold;
-            transition: background-color 0.3s ease, transform 0.2s ease;
-            margin-top: 15px;
-        }
-
-        .form-link:hover {
-            background-color: #2980b9;
-            transform: scale(1.05);
         }
 
         footer {
@@ -213,7 +260,7 @@
 <body>
     <header>
         <div class="container">
-            <h1>Ganesh Utsav 2025</h1>
+            <h1>Ganesh Utsav (Keshav kunj) 2025</h1>
             <p>A fun-filled extravaganza at Keshav Kunj Society</p>
         </div>
     </header>
@@ -226,12 +273,16 @@
 
         <section class="section">
             <h2>Event Registration Forms</h2>
-            <div id="form-list" class="form-list"></div>
+            <div class="form-card">
+                <div id="form-list" class="form-list"></div>
+            </div>
         </section>
 
         <section class="section">
             <h2>Contact Persons</h2>
-            <div id="contact-list" class="contact-list"></div>
+            <div class="contact-card">
+                <div id="contact-list" class="contact-list"></div>
+            </div>
         </section>
     </main>
 
@@ -350,7 +401,7 @@
             event.items.forEach(item => {
                 const itemDiv = document.createElement('div');
                 itemDiv.className = 'event-item';
-
+                
                 const detailsDiv = document.createElement('div');
                 detailsDiv.className = 'event-item-details';
 
@@ -373,41 +424,41 @@
             return card;
         }
 
-        function createFormCard(item) {
-            const card = document.createElement('div');
-            card.className = 'form-card';
+        function createFormListItem(item) {
+            const listItem = document.createElement('div');
+            listItem.className = 'form-list-item';
 
-            const nameH3 = document.createElement('h3');
-            nameH3.textContent = item.name;
-            card.appendChild(nameH3);
+            const eventName = document.createElement('span');
+            eventName.textContent = item.name;
+            eventName.className = "event-name";
+            listItem.appendChild(eventName);
 
             const formLink = document.createElement('a');
             formLink.className = 'form-link';
             formLink.textContent = 'Form Link';
             formLink.href = '#'; // Replace '#' with actual registration form link
             formLink.target = '_blank';
-            card.appendChild(formLink);
+            listItem.appendChild(formLink);
 
-            return card;
+            return listItem;
         }
         
-        function createContactCard(contact) {
-            const card = document.createElement('div');
-            card.className = 'contact-card';
+        function createContactListItem(contact) {
+            const listItem = document.createElement('div');
+            listItem.className = 'contact-person';
 
             const nameH3 = document.createElement('h3');
             nameH3.textContent = contact.name;
-            card.appendChild(nameH3);
+            listItem.appendChild(nameH3);
 
             const numberP = document.createElement('p');
             const numberLink = document.createElement('a');
             numberLink.href = `tel:${contact.number.replace(/\s/g, '')}`;
             numberLink.textContent = contact.number;
-            numberP.textContent = "Mobile: ";
             numberP.appendChild(numberLink);
-            card.appendChild(numberP);
+            listItem.appendChild(numberP);
 
-            return card;
+            return listItem;
         }
 
         eventsData.forEach(event => {
@@ -418,15 +469,15 @@
         eventsData.forEach(event => {
             event.items.forEach(item => {
                 if (item.hasLink) {
-                    const card = createFormCard(item);
-                    formListContainer.appendChild(card);
+                    const listItem = createFormListItem(item);
+                    formListContainer.appendChild(listItem);
                 }
             });
         });
 
         contactData.forEach(contact => {
-            const card = createContactCard(contact);
-            contactListContainer.appendChild(card);
+            const listItem = createContactListItem(contact);
+            contactListContainer.appendChild(listItem);
         });
     </script>
 </body>
