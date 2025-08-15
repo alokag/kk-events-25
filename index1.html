@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Ganesh Utsav 2025 - Keshav Kunj</title>
+<style>
+  :root {
+    --primary: #ff6f00;
+    --secondary: #ffd54f;
+    --bg: #fff3e0;
+    --text: #2c3e50;
+    --card-bg: #ffffff;
+    --shadow: 0 4px 10px rgba(0,0,0,0.15);
+    --radius: 12px;
+  }
+  [data-theme="dark"] {
+    --bg: #121212;
+    --text: #e0e0e0;
+    --card-bg: #1e1e1e;
+    --secondary: #ffb300;
+  }
+  body {
+    margin: 0;
+    font-family: system-ui, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+  }
+  header {
+    background: linear-gradient(45deg, var(--primary), var(--secondary));
+    color: white;
+    padding: 1rem;
+    text-align: center;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+  }
+  header h1 {
+    margin: 0;
+    font-size: 1.8rem;
+  }
+  header h2 {
+    margin: 0.2rem 0 0;
+    font-size: 1rem;
+  }
+
+  #themeToggle {
+    position: absolute;
+    right: 1rem;
+    top: 1rem;
+    background: white;
+    color: var(--primary);
+    border: none;
+    border-radius: 50%;
+    width: 32px;
+    height: 32px;
+    cursor: pointer;
+    font-size: 1rem;
+    box-shadow: var(--shadow);
+  }
+  main {
+    padding: 1rem;
+  }
+  .section-title {
+    font-size: 1.4rem;
+    margin: 1rem 0;
+    text-align: center;
+    font-weight: bold;
+  }
+  .event-card {
+    background: var(--card-bg);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    margin-bottom: 1rem;
+    overflow: hidden;
+  }
+  .event-header {
+    background: var(--secondary);
+    padding: 0.8rem;
+    font-weight: bold;
+    display: flex;
+    justify-content: space-between;
+    cursor: pointer;
+  }
+  .event-items {
+    display: none;
+    padding: 0.8rem;
+    animation: fadeIn 0.3s ease-in-out;
+  }
+  .event-item {
+    background: var(--bg);
+    border-radius: 8px;
+    padding: 0.6rem;
+    margin-bottom: 0.6rem;
+  }
+  .event-name {
+    font-weight: bold;
+  }
+  .event-time {
+    font-size: 0.9rem;
+    color: gray;
+  }
+  .form-link {
+    margin-top: 0.4rem;
+    display: inline-block;
+    background: var(--primary);
+    color: white;
+    padding: 0.4rem 0.8rem;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    text-decoration: none;
+  }
+  .contact-persons {
+    margin-top: 0.4rem;
+    font-size: 0.85rem;
+  }
+  .contact-persons a {
+    color: var(--primary);
+    text-decoration: none;
+  }
+  .contact-persons a:hover {
+    text-decoration: underline;
+  }
+  .contact-card {
+    background: var(--card-bg);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    padding: 1rem;
+    margin-bottom: 1rem;
+  }
+  .contact-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+  }
+  .contact-person {
+    text-align: center;
+  }
+  .floating-contact {
+    position: fixed;
+    bottom: 1rem;
+    right: 1rem;
+    background: var(--primary);
+    color: white;
+    border-radius: 50%;
+    width: 56px;
+    height: 56px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: var(--shadow);
+    font-size: 1.5rem;
+    cursor: pointer;
+    z-index: 100;
+    text-decoration: none;
+  }
+  footer {
+    text-align: center;
+    padding: 1rem;
+    background: var(--card-bg);
+    color: var(--text);
+    font-size: 0.85rem;
+  }
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-5px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+</style>
+</head>
+<body>
+<header>
+
+  <h1>Ganesh Utsav 2025</h1>
+  <h2>33, Keshav Kunj Society</h2>
+  <button id="themeToggle">🌙</button>
+</header>
+<main>
+  <div class="section-title">Event Schedule</div>
+  <div id="event-list"></div>
+
+  <div class="section-title">Pooja Committee Contacts</div>
+  <div class="contact-card">
+    <div id="contact-list" class="contact-list"></div>
+  </div>
+</main>
+
+<a href="tel:9096767484" class="floating-contact">📞</a>
+
+<footer>
+  &copy; 2025 33 Keshavkunj Festival Committee. All Rights Reserved.
+</footer>
+
+<script>
+const eventsData = [
+   {
+                date: "23rd Aug, Sat",
+                items: [
+                    { name: "Blood donation camp 💉🩸", time: "10am-1pm", hasLink: false, contacts: [] },
+                    { name: "Sports (Indoor games) ♟️🏓🏃", time: "9am Onwards", hasLink: true, link: "https://forms.gle/bYgs7EEdaytEtLKX8", contacts: [{ name: "Alok", number: "9579377190" }, { name: "Shrini", number: "7387638149"} ] }
+                ]
+            },
+            {
+                date: "24th Aug, Sun",
+                items: [
+                    { name: "Sports (Outdoor games) ⚽️🏀🏏", time: "9am Onwards", hasLink: true, link:"https://forms.gle/bYgs7EEdaytEtLKX8", contacts: [] }
+                ]
+            },
+            {
+                date: "27th Aug, Wed",
+                items: [
+                    { name: "Lorry Decoration 🌸🌻🌷🏵", time: "Morning", hasLink: false, contacts: [] },
+                    { name: "Dhol Tasha and Ladies Lezim Performance 🌹💐🥁", time: "3pm onwards", hasLink: false, contacts: [{ name: "Vijay", number: "7620921575" }] },
+                    { name: "Ganpati sthapna pooja", time: "7:30pm", hasLink: false, contacts: [] }
+                ]
+            },
+            {
+                date: "28th Aug, Thur",
+                items: [
+                    { name: "Musical chair 🎶🪑🏃‍♀️🎵", time: "After Evening Aarti", hasLink: false, contacts: [] }
+                ]
+            },
+            {
+                date: "29th Aug, Fri",
+                items: [
+                    { name: "Treasure hunt 🔎💡💰", time: "After Evening Aarti", hasLink: false, contacts: [] }
+                ]
+            },
+            {
+                date: "30th Aug, Sat",
+                items: [
+                    { name: "Rangoli and Drawing competition 🍀🪷🎨", time: "11am - 1pm", hasLink: false, contacts: [{ name: "Saurabh", number: "9096767484" }] },
+                    { name: "Cultural Night 👯‍♂️🕺💃", time: "After Evening Aarti", hasLink: true, link: "https://forms.gle/8QftsNtSeLKM1Yzu7", contacts: [{ name: "Anshuman", number: "9730446684" },{ name: "Dolly", number: "9028475102" }] }
+                ]
+            },
+            {
+                date: "31st Aug, Sun",
+                items: [
+                    { name: "Medical Camp 🩺💊", time: "10am-1pm", hasLink: false, contacts: [] },
+                    { name: "Bhandara 😋🥘", time: "12pm-3pm", hasLink: false, contacts: [] },
+                    { name: "Fancy dress and Ramp walk 💃😎🦹‍♀️", time: "After Evening Aarti", hasLink: true, link:"https://forms.gle/kMMsQcwibJkx4ohQ9", contacts: [{ name: "Kiran", number: "7023488147" }] }
+                ]
+            },
+            {
+                date: "1st Sep, Mon",
+                items: [
+                    { name: "Antakshri 🎤🧑‍🎤", time: "After Evening Aarti", hasLink: true, link:" https://forms.gle/zinMcdEmFM7XkNaHA", contacts: [{ name: "Altaf", number: "9890347534" }] }
+                ]
+            },
+            {
+                date: "2nd Sep, Tue",
+                items: [
+                    { name: "Lemon n Spoon 🥄🍋", time: "After Evening Aarti", hasLink: false, contacts: [] }
+                ]
+            },
+            {
+                date: "3rd Sep, Wed",
+                items: [
+                    { name: "Karaoke Night 🎤🎶🎼", time: "After Evening Aarti", hasLink: true, link: "https://forms.gle/Vy57YXk8vGTNYNSB8", contacts: [{ name: "Kishor", number: "9326870096" }] }
+                ]
+            },
+            {
+                date: "4th Sep, Thu",
+                items: [
+                    { name: "Surprise games for All 🥳🥳", time: "After Evening Aarti", hasLink: false, contacts: [] }
+                ]
+            },
+            {
+                date: "5th Sep, Fri",
+                items: [
+                    { name: "Anand Nagari 🍕🍟🍧🍰", time: "7pm-11pm", hasLink: false, contacts: [] }
+                ]
+            },
+            {
+                date: "6th Sep, Sat",
+                items: [
+                    { name: "Prize and Gift Distribution 🥉🥈🥇🏆", time: "12pm-2pm", hasLink: false, contacts: [{ name: "Alok", number: "9579377190" }] },
+                    { name: "Ganesh Visarjan 🥁🥁", time: "3pm onwards", hasLink: false, contacts: [] }
+                ]
+            }
+];
+
+const contactData = [
+  { name: "Saurabh", number: "9096767484" },
+  { name: "Anshuman", number: "9730446684" },
+  { name: "Kishor", number: "9326870096" },
+  { name: "Vijay", number: "7620921575" },
+  { name: "Biswa", number: "9970093548" }
+];
+
+function renderEvents() {
+  const container = document.getElementById("event-list");
+  eventsData.forEach((day, index) => {
+    const card = document.createElement("div");
+    card.className = "event-card";
+
+    const header = document.createElement("div");
+    header.className = "event-header";
+    header.innerHTML = `<span>${day.date}</span><span>+</span>`;
+
+    const itemsWrap = document.createElement("div");
+    itemsWrap.className = "event-items";
+
+    day.items.forEach(ev => {
+      const item = document.createElement("div");
+      item.className = "event-item";
+      item.innerHTML = `<div class="event-name">${ev.name}</div>
+        <div class="event-time">${ev.time || ""}</div>`;
+      if (ev.link) {
+        const link = document.createElement("a");
+        link.href = ev.link;
+        link.target = "_blank";
+        link.className = "form-link";
+        link.textContent = "Form Link";
+        item.appendChild(link);
+      }
+      if (ev.contacts && ev.contacts.length) {
+        const contactsDiv = document.createElement("div");
+        contactsDiv.className = "contact-persons";
+        contactsDiv.innerHTML = "Contact: " + ev.contacts.map(c => 
+          `<a href="tel:${c.number}">${c.name} (${c.number})</a>`).join(", ");
+        item.appendChild(contactsDiv);
+      }
+      itemsWrap.appendChild(item);
+    });
+
+    // Set default open for first tab
+    if (index === 0) {
+      itemsWrap.style.display = "block";
+      header.querySelector("span:last-child").textContent = "-";
+    }
+
+    header.onclick = () => {
+      const isOpen = itemsWrap.style.display === "block";
+      itemsWrap.style.display = isOpen ? "none" : "block";
+      header.querySelector("span:last-child").textContent = isOpen ? "+" : "-";
+    };
+
+    card.appendChild(header);
+    card.appendChild(itemsWrap);
+    container.appendChild(card);
+  });
+}
+
+
+function renderContacts() {
+  const contactList = document.getElementById("contact-list");
+  contactData.forEach(c => {
+    const div = document.createElement("div");
+    div.className = "contact-persons";
+    div.innerHTML = `<strong>${c.name}</strong> : <a href="tel:${c.number}">${c.number}</a>`;
+    contactList.appendChild(div);
+  });
+}
+
+document.getElementById("themeToggle").onclick = () => {
+  const body = document.body;
+  const dark = body.getAttribute("data-theme") === "dark";
+  body.setAttribute("data-theme", dark ? "light" : "dark");
+  document.getElementById("themeToggle").textContent = dark ? "🌙" : "☀️";
+};
+
+renderEvents();
+renderContacts();
+</script>
+</body>
+</html>
