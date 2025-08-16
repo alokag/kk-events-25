@@ -148,4 +148,67 @@
     "date": "2nd Sep, Tue",
     "items": [
       {
-        "name":
+        "name": "Lemon n Spoon 🥄🍋",
+        "time": "After Evening Aarti",
+        "hasLink": false,
+        "contacts": []
+      }
+    ]
+  },
+  {
+    "date": "3rd Sep, Wed",
+    "items": [
+      {
+        "name": "Karaoke Night 🎤🎶🎼",
+        "time": "After Evening Aarti",
+        "hasLink": true,
+        "link": "https://forms.gle/Vy57YXk8vGTNYNSB8",
+        "contacts": [
+          { "name": "Kishor", "number": "9326870096" }
+        ],
+        "statsUrl": "https://docs.google.com/spreadsheets/d/e/2PACX-1vTCIqM5MPxy9vHGhcThyVioTnWj0ZflWSJ9qp_m-jxWIxL8wuEuliNOcK5qZazNMQcFsoiMoQXlrDUq/pub?output=csv"
+      }
+    ]
+  },
+  {
+    "date": "4th Sep, Thu",
+    "items": [
+      {
+        "name": "Surprise games for All 🥳🥳",
+        "time": "After Evening Aarti",
+        "hasLink": false,
+        "contacts": []
+      }
+    ]
+  },
+  {
+    "date": "5th Sep, Fri",
+    "items": [
+      {
+        "name": "Anand Nagari 🍕🍟🍧🍰",
+        "time": "7pm-11pm",
+        "hasLink": false,
+        "contacts": []
+      }
+    ]
+  },
+  {
+    "date": "6th Sep, Sat",
+    "items": [
+      {
+        "name": "Prize and Gift Distribution 🥉🥈🥇🏆",
+        "time": "12pm-2pm",
+        "hasLink": false,
+        "contacts": [
+          { "name": "Alok", "number": "9579377190" }
+        ]
+      },
+      {
+        "name": "Ganesh Visarjan 🥁🥁",
+        "time": "3pm onwards",
+        "hasLink": false,
+        "contacts": []
+      }
+    ]
+  }
+]
