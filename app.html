@@ -37,14 +37,6 @@
 </head>
 <body>
 <header>
-  <pre style="font-family:monospace; font-size:0.8rem; line-height:1.2; margin:0;">
-      ||
-    ( ॐ )
-   /     \
-  |   ॐ   |
-   \     /
-    '---'
-  </pre>
   <h1>Ganesh Utsav 2025</h1>
   <h2>33, Keshav Kunj Society</h2>
 </header>
@@ -69,11 +61,11 @@ async function loadData() {
     fetch("events.json"), fetch("contacts.json")
   ]);
   const eventsData = await eventsRes.json();
-  const contacts = await contactsRes.json();
+ // const contacts = await contactsRes.json();
   renderEvents(eventsData);
   renderRules(eventsData);
   renderParticipants(eventsData);
-  renderContacts(contacts);
+ // renderContacts(contacts);
 }
 
 function renderEvents(eventsData) {
