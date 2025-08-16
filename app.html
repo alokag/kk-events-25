@@ -53,6 +53,10 @@
   <section id="rules"><h2>Game Rules</h2><div id="rules-list"></div></section>
   <section id="participants"><h2>Participants</h2><div id="participants-list"></div></section>
   <section id="contacts"><h2>Pooja Committee Contacts</h2><div id="contact-list" class="contact-card"></div></section>
+<section id="sports-stats" class="event-card">
+  <h2>Sports Registrations</h2>
+  <div id="game-counts">Loading...</div>
+</section>	
 </main>
 
 <script>
@@ -66,7 +70,59 @@ async function loadData() {
   renderRules(eventsData);
   renderParticipants(eventsData);
  // renderContacts(contacts);
+renderGameCounts();	
 }
+
+async function getGameCounts(url) {
+  const res = await fetch(url);
+  if (!res.ok) throw new Error("Failed to fetch CSV");
+  const csv = await res.text();
+
+  const rows = csv.split(/\r?\n/).filter(r => r.trim() !== "");
+  const header = rows[0].split(",");
+
+  // find column that contains participant's game choices
+  const gameColIndex = header.findIndex(h =>
+    /game/i.test(h) || /choose/i.test(h) || /sport/i.test(h)
+  );
+
+  const counts = { Football: 0, Cricket: 0, Badminton: 0 };
+
+  rows.slice(1).forEach(row => {
+    const cols = row.split(",");
+    const cell = cols[gameColIndex]?.trim();
+    if (!cell) return;
+
+    // split multiple games by comma
+    const games = cell.split(/[,;]/).map(g => g.trim().toLowerCase());
+
+    games.forEach(g => {
+      if (g.includes("football")) counts.Football++;
+      if (g.includes("cricket")) counts.Cricket++;
+      if (g.includes("badminton")) counts.Badminton++;
+    });
+  });
+
+  return counts;
+}
+
+async function renderGameCounts() {
+  const url = "https://docs.google.com/spreadsheets/d/e/2PACX-1vTxqZ2VmLZ76VU7QZi7dKdHYBxNl8uWGI3rd9b-Un2bkWDcX88pHqTrjNhuYZzZN4HYyIIPxOAEZ36b/pub?output=csv";
+  try {
+    const counts = await getGameCounts(url);
+    document.getElementById("game-counts").innerHTML = `
+      <div><strong>Football:</strong> ${counts.Football}</div>
+      <div><strong>Cricket:</strong> ${counts.Cricket}</div>
+      <div><strong>Badminton:</strong> ${counts.Badminton}</div>
+    `;
+  } catch (err) {
+    console.error(err);
+    document.getElementById("game-counts").textContent = "Unable to load stats";
+  }
+}
+
+
+	
 
 
 async function getRegistrationCount(rawUrl) {
