@@ -68,6 +68,40 @@ async function loadData() {
  // renderContacts(contacts);
 }
 
+
+async function getRegistrationCount(rawUrl) {
+  const url = rawUrl.trim();
+  // cache-buster to avoid any sticky CDN caching
+  const sep = url.includes("?") ? "&" : "?";
+  const fetchUrl = `${url}${sep}cb=${Date.now()}`;
+
+  // timeout guard
+  const ctrl = new AbortController();
+  const t = setTimeout(() => ctrl.abort(), 10000);
+
+  try {
+    const res = await fetch(fetchUrl, { mode: "cors", cache: "no-store", signal: ctrl.signal });
+    if (!res.ok) throw new Error(`HTTP ${res.status}`);
+    const csv = await res.text();
+
+    // Robust line split, ignore header + blank lines
+    const lines = csv.split(/\r?\n/).filter((line, idx) => idx > 0 && line.trim() !== "");
+    return lines.length; // number of responses
+  } finally {
+    clearTimeout(t);
+  }
+}
+
+function renderStats(statsDiv, url) {
+  statsDiv.textContent = "Loading registrations...";
+  getRegistrationCount(url)
+    .then(total => { statsDiv.textContent = `Registrations: ${total}`; })
+    .catch(err => { 
+      console.error("Stats fetch failed:", err, url);
+      statsDiv.textContent = "Stats unavailable";
+    });
+}	
+
 function renderEvents(eventsData) {
   const container = document.getElementById("event-list");
   eventsData.forEach((day, index) => {
