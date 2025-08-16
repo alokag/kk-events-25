@@ -83,10 +83,10 @@ async function getGameCounts(url) {
 
   // find column that contains participant's game choices
   const gameColIndex = header.findIndex(h =>
-    /game/i.test(h) || /choose/i.test(h) || /sport/i.test(h)
+    /game/i.test(h) || /participate/i.test(h) || /sport/i.test(h)
   );
 
-  const counts = { Football: 0, Cricket: 0, Badminton: 0, Carrom:0, Chess:0, Table:0  , Sprint:0 , Jalebi:0  };
+  const counts = { Football: 0, Cricket: 0, Badminton: 0, Carrom:0, Chess:0, Table:0 , Sprint:0 , Jalebi:0  };
 
   rows.slice(1).forEach(row => {
     const cols = row.split(",");
@@ -97,14 +97,14 @@ async function getGameCounts(url) {
     const games = cell.split(/[,;]/).map(g => g.trim().toLowerCase());
 
     games.forEach(g => {
-      if (g.includes("Football")) counts.Football++;
-      if (g.includes("Cricket")) counts.Cricket++;
-      if (g.includes("Badminton")) counts.Badminton++;
-	 if (g.includes("Carrom")) counts.Carrom++;
-		 if (g.includes("Chess")) counts.Chess++;
-		 if (g.includes("Table")) counts.Table++;
-		 if (g.includes("Sprint")) counts.Sprint++;
-		 if (g.includes("Jalebi")) counts.Jalebi++;
+      if (g.includes("football")) counts.Football++;
+      if (g.includes("cricket")) counts.Cricket++;
+      if (g.includes("badminton")) counts.Badminton++;
+	 if (g.includes("carrom")) counts.Carrom++;
+		 if (g.includes("chess")) counts.Chess++;
+		 if (g.includes("table")) counts.Table++;
+		 if (g.includes("sprint")) counts.Sprint++;
+		 if (g.includes("jalebi")) counts.Jalebi++;
     });
   });
 
