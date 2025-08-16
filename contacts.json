@@ -1,7 +1,7 @@
 [
-  { name: "Saurabh", number: "9096767484" },
-  { name: "Anshuman", number: "9730446684" },
-  { name: "Kishor", number: "9326870096" },
-  { name: "Vijay", number: "7620921575" },
-  { name: "Biswa", number: "9970093548" }
+  { "name": "Saurabh", "number": "9096767484" },
+  { "name": "Anshuman", "number": "9730446684" },
+  { "name": "Kishor", "number": "9326870096" },
+  { "name": "Vijay", "number": "7620921575" },
+  { "name": "Biswa", "number": "9970093548" }
 ]
