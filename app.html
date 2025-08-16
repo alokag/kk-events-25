@@ -68,19 +68,65 @@ async function loadData() {
  // renderContacts(contacts);
 }
 
-function renderEvents(eventsData) {
-  const list = document.getElementById("event-list");
-  eventsData.forEach(day => {
+function renderEvents() {
+  const container = document.getElementById("event-list");
+  eventsData.forEach((day, index) => {
     const card = document.createElement("div");
     card.className = "event-card";
-    card.innerHTML = `<div class="event-date">${day.date}</div>`;
+
+    const header = document.createElement("div");
+    header.className = "event-header";
+    header.innerHTML = `<span>${day.date}</span><span>+</span>`;
+
+    const itemsWrap = document.createElement("div");
+    itemsWrap.className = "event-items";
+
     day.items.forEach(ev => {
       const item = document.createElement("div");
       item.className = "event-item";
-      item.innerHTML = `<div class="event-name">${ev.name}</div><div class="event-time">${ev.time||""}</div>`;
-      card.appendChild(item);
+      item.innerHTML = `<div class="event-name">${ev.name}</div>
+        <div class="event-time">${ev.time || ""}</div>`;
+      if (ev.link) {
+        const link = document.createElement("a");
+        link.href = ev.link;
+        link.target = "_blank";
+        link.className = "form-link";
+        link.textContent = "Form Link";
+        item.appendChild(link);
+      }
+      if (ev.contacts && ev.contacts.length) {
+        const contactsDiv = document.createElement("div");
+        contactsDiv.className = "contact-persons";
+        contactsDiv.innerHTML = "Contact: " + ev.contacts.map(c => 
+          `<a href="tel:${c.number}">${c.name} (${c.number})</a>`).join(", ");
+        item.appendChild(contactsDiv);
+      }
+      if (ev.statsUrl) {
+		  const statsDiv = document.createElement("div");
+		  statsDiv.style.fontSize = "0.85rem";
+		  statsDiv.style.color = "gray";
+		  item.appendChild(statsDiv);           // append first so the user sees "Loading..."
+		  renderStats(statsDiv, ev.statsUrl);   // then load
+		}
+
+      itemsWrap.appendChild(item);
     });
-    list.appendChild(card);
+
+    // Set default open for first tab
+    if (index === 0) {
+      itemsWrap.style.display = "block";
+      header.querySelector("span:last-child").textContent = "-";
+    }
+
+    header.onclick = () => {
+      const isOpen = itemsWrap.style.display === "block";
+      itemsWrap.style.display = isOpen ? "none" : "block";
+      header.querySelector("span:last-child").textContent = isOpen ? "+" : "-";
+    };
+
+    card.appendChild(header);
+    card.appendChild(itemsWrap);
+    container.appendChild(card);
   });
 }
 
