@@ -68,7 +68,7 @@ async function loadData() {
  // renderContacts(contacts);
 }
 
-function renderEvents() {
+function renderEvents(eventsData) {
   const container = document.getElementById("event-list");
   eventsData.forEach((day, index) => {
     const card = document.createElement("div");
