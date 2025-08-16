@@ -201,7 +201,8 @@ const eventsData = [
                 date: "23rd Aug, Sat",
                 items: [
                     { name: "Blood donation camp 💉🩸", time: "10am-1pm", hasLink: false, contacts: [] },
-                    { name: "Sports (Indoor games) ♟️🏓🏃", time: "9am Onwards", hasLink: true, link: "https://forms.gle/bYgs7EEdaytEtLKX8", contacts: [{ name: "Alok", number: "9579377190" }, { name: "Shrini", number: "7387638149"} ] }
+                   { name: "Sports (Indoor games) ♟️🏓🏃", time: "9am Onwards", hasLink: true, link: "https://forms.gle/bYgs7EEdaytEtLKX8", contacts: [{ name: "Alok", number: "9579377190" }, { name: "Shrini", number: "7387638149"}],statsUrl: "https://docs.google.com/spreadsheets/d/e/2PACX-1vTxqZ2VmLZ76VU7QZi7dKdHYBxNl8uWGI3rd9b-Un2bkWDcX88pHqTrjNhuYZzZN4HYyIIPxOAEZ36b/pub?output=csv"  }
+                ]
                 ]
             },
             {
@@ -325,6 +326,26 @@ function renderEvents() {
           `<a href="tel:${c.number}">${c.name} (${c.number})</a>`).join(", ");
         item.appendChild(contactsDiv);
       }
+      if (ev.statsUrl) {
+		  const statsDiv = document.createElement("div");
+		  statsDiv.textContent = "Loading registrations...";
+		  statsDiv.style.fontSize = "0.85rem";
+		  statsDiv.style.color = "gray";
+
+		  // Fetch CSV and count responses
+		  fetch(ev.statsUrl)
+			.then(res => res.text())
+			.then(csv => {
+			  const rows = csv.split("\n");
+			  const total = rows.length - 1; // minus header
+			  statsDiv.textContent = `Registrations: ${total}`;
+			})
+			.catch(() => {
+			  statsDiv.textContent = "Stats unavailable";
+			});
+
+		  item.appendChild(statsDiv);
+		}
       itemsWrap.appendChild(item);
     });
 
