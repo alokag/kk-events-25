@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Ganesh Utsav 2025 - Keshav Kunj</title>
+<style>
+  :root {
+    --primary: #ff6f00;
+    --secondary: #ffd54f;
+    --bg: #fff3e0;
+    --text: #2c3e50;
+    --card-bg: #ffffff;
+    --shadow: 0 4px 10px rgba(0,0,0,0.15);
+    --radius: 12px;
+  }
+  body { margin: 0; font-family: system-ui, sans-serif; background: var(--bg); color: var(--text); }
+  header { background: linear-gradient(45deg, var(--primary), var(--secondary)); color: white; padding: 1rem; text-align: center; position: sticky; top: 0; z-index: 10; }
+  header h1 { margin: 0; font-size: 1.8rem; }
+  nav { display: flex; justify-content: center; gap: 0.5rem; background: var(--card-bg); box-shadow: var(--shadow); padding: 0.5rem; position: sticky; top: 60px; z-index: 9; }
+  nav button { border: none; padding: 0.6rem 1rem; border-radius: 20px; cursor: pointer; background: var(--secondary); font-weight: bold; }
+  nav button.active { background: var(--primary); color: white; }
+  main { padding: 1rem; }
+  section { display: none; }
+  section.active { display: block; }
+  .event-card, .contact-card { background: var(--card-bg); border-radius: var(--radius); box-shadow: var(--shadow); margin-bottom: 1rem; padding: 1rem; }
+  .event-date { font-weight: bold; color: var(--primary); margin-bottom: 0.5rem; }
+  .event-item { margin-bottom: 0.5rem; padding: 0.5rem; border-left: 3px solid var(--secondary); }
+  .event-name { font-weight: bold; }
+  .event-time { font-size: 0.9rem; color: gray; }
+  .rules { font-size: 0.9rem; margin-top: 0.3rem; color: #444; }
+  .participants { font-size: 0.9rem; margin-top: 0.3rem; }
+  .participants strong { display: block; margin-bottom: 0.2rem; }
+  .contact-person { margin-bottom: 0.5rem; }
+  .contact-person strong { color: var(--primary); }
+</style>
+</head>
+<body>
+<header>
+  <pre style="font-family:monospace; font-size:0.8rem; line-height:1.2; margin:0;">
+      ||
+    ( ॐ )
+   /     \
+  |   ॐ   |
+   \     /
+    '---'
+  </pre>
+  <h1>Ganesh Utsav 2025</h1>
+  <h2>33, Keshav Kunj Society</h2>
+</header>
+
+<nav>
+  <button class="active" onclick="showSection('schedule')">Schedule</button>
+  <button onclick="showSection('rules')">Rules</button>
+  <button onclick="showSection('participants')">Participants</button>
+  <button onclick="showSection('contacts')">Contacts</button>
+</nav>
+
+<main>
+  <section id="schedule" class="active"><h2>Event Schedule</h2><div id="event-list"></div></section>
+  <section id="rules"><h2>Game Rules</h2><div id="rules-list"></div></section>
+  <section id="participants"><h2>Participants</h2><div id="participants-list"></div></section>
+  <section id="contacts"><h2>Pooja Committee Contacts</h2><div id="contact-list" class="contact-card"></div></section>
+</main>
+
+<script>
+async function loadData() {
+  const [eventsRes, contactsRes] = await Promise.all([
+    fetch("events.json"), fetch("contacts.json")
+  ]);
+  const eventsData = await eventsRes.json();
+  const contacts = await contactsRes.json();
+  renderEvents(eventsData);
+  renderRules(eventsData);
+  renderParticipants(eventsData);
+  renderContacts(contacts);
+}
+
+function renderEvents(eventsData) {
+  const list = document.getElementById("event-list");
+  eventsData.forEach(day => {
+    const card = document.createElement("div");
+    card.className = "event-card";
+    card.innerHTML = `<div class="event-date">${day.date}</div>`;
+    day.items.forEach(ev => {
+      const item = document.createElement("div");
+      item.className = "event-item";
+      item.innerHTML = `<div class="event-name">${ev.name}</div><div class="event-time">${ev.time||""}</div>`;
+      card.appendChild(item);
+    });
+    list.appendChild(card);
+  });
+}
+
+function renderRules(eventsData) {
+  const rulesList = document.getElementById("rules-list");
+  eventsData.forEach(day => {
+    day.items.forEach(ev => {
+      if(ev.rules) {
+        const div = document.createElement("div");
+        div.className = "event-item";
+        div.innerHTML = `<div class="event-name">${ev.name}</div><div class="rules">${ev.rules}</div>`;
+        rulesList.appendChild(div);
+      }
+    });
+  });
+}
+
+function renderParticipants(eventsData) {
+  const partList = document.getElementById("participants-list");
+  eventsData.forEach(day => {
+    day.items.forEach(ev => {
+      if(ev.participants && ev.participants.length) {
+        const div = document.createElement("div");
+        div.className = "event-item";
+        div.innerHTML = `<div class="event-name">${ev.name}</div><div class="participants"><strong>Participants:</strong>${ev.participants.map(p=>p.name).join(", ")}</div>`;
+        partList.appendChild(div);
+      }
+    });
+  });
+}
+
+function renderContacts(contacts) {
+  const list = document.getElementById("contact-list");
+  contacts.forEach(c => {
+    const div = document.createElement("div");
+    div.className = "contact-person";
+    div.innerHTML = `<strong>${c.name}</strong> - <a href="tel:${c.number}">${c.number}</a>`;
+    list.appendChild(div);
+  });
+}
+
+function showSection(id) {
+  document.querySelectorAll("main section").forEach(s => s.classList.remove("active"));
+  document.querySelectorAll("nav button").forEach(b => b.classList.remove("active"));
+  document.getElementById(id).classList.add("active");
+  document.querySelector(`nav button[onclick="showSection('${id}')"]`).classList.add("active");
+}
+
+loadData();
+</script>
+</body>
+</html>
