@@ -1,88 +1,151 @@
 [
-   {
-                date: "23rd Aug, Sat",
-                items: [
-                    { name: "Blood donation camp 💉🩸", time: "10am-1pm", hasLink: false, contacts: [] },
-                   { name: "Sports (Indoor games) ♟️🏓🏃", time: "9am Onwards", hasLink: true, link: "https://forms.gle/bYgs7EEdaytEtLKX8", contacts: [{ name: "Alok", number: "9579377190" }, { name: "Shrini", number: "7387638149"}],statsUrl: "https://docs.google.com/spreadsheets/d/e/2PACX-1vTxqZ2VmLZ76VU7QZi7dKdHYBxNl8uWGI3rd9b-Un2bkWDcX88pHqTrjNhuYZzZN4HYyIIPxOAEZ36b/pub?output=csv"  }
-                ]
-                
-            },
-            {
-                date: "24th Aug, Sun",
-                items: [
-                    { name: "Sports (Outdoor games) ⚽️🏀🏏", time: "9am Onwards", hasLink: true, link:"https://forms.gle/bYgs7EEdaytEtLKX8", contacts: [] }
-                ]
-            },
-            {
-                date: "27th Aug, Wed",
-                items: [
-                    { name: "Lorry Decoration 🌸🌻🌷🏵", time: "Morning", hasLink: false, contacts: [] },
-                    { name: "Dhol Tasha and Ladies Lezim Performance 🌹💐🥁", time: "3pm onwards", hasLink: false, contacts: [{ name: "Vijay", number: "7620921575" }] },
-                    { name: "Ganpati sthapna pooja", time: "7:30pm", hasLink: false, contacts: [] }
-                ]
-            },
-            {
-                date: "28th Aug, Thur",
-                items: [
-                    { name: "Musical chair 🎶🪑🏃‍♀️🎵", time: "After Evening Aarti", hasLink: false, contacts: [] }
-                ]
-            },
-            {
-                date: "29th Aug, Fri",
-                items: [
-                    { name: "Treasure hunt 🔎💡💰", time: "After Evening Aarti", hasLink: false, contacts: [] }
-                ]
-            },
-            {
-                date: "30th Aug, Sat",
-                items: [
-                    { name: "Rangoli and Drawing competition 🍀🪷🎨", time: "11am - 1pm", hasLink: false, contacts: [{ name: "Saurabh", number: "9096767484" }] },
-                    { name: "Cultural Night 👯‍♂️🕺💃", time: "After Evening Aarti", hasLink: true, link: "https://forms.gle/8QftsNtSeLKM1Yzu7", contacts: [{ name: "Anshuman", number: "9730446684" },{ name: "Dolly", number: "9028475102" }] }
-                ]
-            },
-            {
-                date: "31st Aug, Sun",
-                items: [
-                    { name: "Medical Camp 🩺💊", time: "10am-1pm", hasLink: false, contacts: [] },
-                    { name: "Bhandara 😋🥘", time: "12pm-3pm", hasLink: false, contacts: [] },
-                    { name: "Fancy dress and Ramp walk 💃😎🦹‍♀️", time: "After Evening Aarti", hasLink: true, link:"https://forms.gle/kMMsQcwibJkx4ohQ9", contacts: [{ name: "Kiran", number: "7023488147" }], statsUrl:"https://docs.google.com/spreadsheets/d/e/2PACX-1vQp7quf_H7aWoNIzC5_xxL6e24kD_K62Oi511qQEcHgOqhrfJb8w5Y2Zo5LY_-nMx0DrdwTbuHLm9cs/pub?output=csv" }
-                ]
-            },
-            {
-                date: "1st Sep, Mon",
-                items: [
-                    { name: "Antakshri 🎤🧑‍🎤", time: "After Evening Aarti", hasLink: true, link:" https://forms.gle/zinMcdEmFM7XkNaHA", contacts: [{ name: "Altaf", number: "9890347534" }] }
-                ]
-            },
-            {
-                date: "2nd Sep, Tue",
-                items: [
-                    { name: "Lemon n Spoon 🥄🍋", time: "After Evening Aarti", hasLink: false, contacts: [] }
-                ]
-            },
-            {
-                date: "3rd Sep, Wed",
-                items: [
-                    { name: "Karaoke Night 🎤🎶🎼", time: "After Evening Aarti", hasLink: true, link: "https://forms.gle/Vy57YXk8vGTNYNSB8", contacts: [{ name: "Kishor", number: "9326870096" }], statsUrl:"https://docs.google.com/spreadsheets/d/e/2PACX-1vTCIqM5MPxy9vHGhcThyVioTnWj0ZflWSJ9qp_m-jxWIxL8wuEuliNOcK5qZazNMQcFsoiMoQXlrDUq/pub?output=csv" }
-                ]
-            },
-            {
-                date: "4th Sep, Thu",
-                items: [
-                    { name: "Surprise games for All 🥳🥳", time: "After Evening Aarti", hasLink: false, contacts: [] }
-                ]
-            },
-            {
-                date: "5th Sep, Fri",
-                items: [
-                    { name: "Anand Nagari 🍕🍟🍧🍰", time: "7pm-11pm", hasLink: false, contacts: [] }
-                ]
-            },
-            {
-                date: "6th Sep, Sat",
-                items: [
-                    { name: "Prize and Gift Distribution 🥉🥈🥇🏆", time: "12pm-2pm", hasLink: false, contacts: [{ name: "Alok", number: "9579377190" }] },
-                    { name: "Ganesh Visarjan 🥁🥁", time: "3pm onwards", hasLink: false, contacts: [] }
-                ]
-            }
-]
+  {
+    "date": "23rd Aug, Sat",
+    "items": [
+      {
+        "name": "Blood donation camp 💉🩸",
+        "time": "10am-1pm",
+        "hasLink": false,
+        "contacts": []
+      },
+      {
+        "name": "Sports (Indoor games) ♟️🏓🏃",
+        "time": "9am Onwards",
+        "hasLink": true,
+        "link": "https://forms.gle/bYgs7EEdaytEtLKX8",
+        "contacts": [
+          { "name": "Alok", "number": "9579377190" },
+          { "name": "Shrini", "number": "7387638149" }
+        ],
+        "statsUrl": "https://docs.google.com/spreadsheets/d/e/2PACX-1vTxqZ2VmLZ76VU7QZi7dKdHYBxNl8uWGI3rd9b-Un2bkWDcX88pHqTrjNhuYZzZN4HYyIIPxOAEZ36b/pub?output=csv"
+      }
+    ]
+  },
+  {
+    "date": "24th Aug, Sun",
+    "items": [
+      {
+        "name": "Sports (Outdoor games) ⚽️🏀🏏",
+        "time": "9am Onwards",
+        "hasLink": true,
+        "link": "https://forms.gle/bYgs7EEdaytEtLKX8",
+        "contacts": []
+      }
+    ]
+  },
+  {
+    "date": "27th Aug, Wed",
+    "items": [
+      {
+        "name": "Lorry Decoration 🌸🌻🌷🏵",
+        "time": "Morning",
+        "hasLink": false,
+        "contacts": []
+      },
+      {
+        "name": "Dhol Tasha and Ladies Lezim Performance 🌹💐🥁",
+        "time": "3pm onwards",
+        "hasLink": false,
+        "contacts": [
+          { "name": "Vijay", "number": "7620921575" }
+        ]
+      },
+      {
+        "name": "Ganpati sthapna pooja",
+        "time": "7:30pm",
+        "hasLink": false,
+        "contacts": []
+      }
+    ]
+  },
+  {
+    "date": "28th Aug, Thur",
+    "items": [
+      {
+        "name": "Musical chair 🎶🪑🏃‍♀️🎵",
+        "time": "After Evening Aarti",
+        "hasLink": false,
+        "contacts": []
+      }
+    ]
+  },
+  {
+    "date": "29th Aug, Fri",
+    "items": [
+      {
+        "name": "Treasure hunt 🔎💡💰",
+        "time": "After Evening Aarti",
+        "hasLink": false,
+        "contacts": []
+      }
+    ]
+  },
+  {
+    "date": "30th Aug, Sat",
+    "items": [
+      {
+        "name": "Rangoli and Drawing competition 🍀🪷🎨",
+        "time": "11am - 1pm",
+        "hasLink": false,
+        "contacts": [
+          { "name": "Saurabh", "number": "9096767484" }
+        ]
+      },
+      {
+        "name": "Cultural Night 👯‍♂️🕺💃",
+        "time": "After Evening Aarti",
+        "hasLink": true,
+        "link": "https://forms.gle/8QftsNtSeLKM1Yzu7",
+        "contacts": [
+          { "name": "Anshuman", "number": "9730446684" },
+          { "name": "Dolly", "number": "9028475102" }
+        ]
+      }
+    ]
+  },
+  {
+    "date": "31st Aug, Sun",
+    "items": [
+      {
+        "name": "Medical Camp 🩺💊",
+        "time": "10am-1pm",
+        "hasLink": false,
+        "contacts": []
+      },
+      {
+        "name": "Bhandara 😋🥘",
+        "time": "12pm-3pm",
+        "hasLink": false,
+        "contacts": []
+      },
+      {
+        "name": "Fancy dress and Ramp walk 💃😎🦹‍♀️",
+        "time": "After Evening Aarti",
+        "hasLink": true,
+        "link": "https://forms.gle/kMMsQcwibJkx4ohQ9",
+        "contacts": [
+          { "name": "Kiran", "number": "7023488147" }
+        ],
+        "statsUrl": "https://docs.google.com/spreadsheets/d/e/2PACX-1vQp7quf_H7aWoNIzC5_xxL6e24kD_K62Oi511qQEcHgOqhrfJb8w5Y2Zo5LY_-nMx0DrdwTbuHLm9cs/pub?output=csv"
+      }
+    ]
+  },
+  {
+    "date": "1st Sep, Mon",
+    "items": [
+      {
+        "name": "Antakshri 🎤🧑‍🎤",
+        "time": "After Evening Aarti",
+        "hasLink": true,
+        "link": "https://forms.gle/zinMcdEmFM7XkNaHA",
+        "contacts": [
+          { "name": "Altaf", "number": "9890347534" }
+        ]
+      }
+    ]
+  },
+  {
+    "date": "2nd Sep, Tue",
+    "items": [
+      {
+        "name":
