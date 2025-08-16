@@ -97,9 +97,9 @@ async function getGameCounts(url) {
     const games = cell.split(/[,;]/).map(g => g.trim().toLowerCase());
 
     games.forEach(g => {
-      if (g.includes("football")) counts.Football++;
-      if (g.includes("cricket")) counts.Cricket++;
-      if (g.includes("badminton")) counts.Badminton++;
+      if (g.includes("Football")) counts.Football++;
+      if (g.includes("Cricket")) counts.Cricket++;
+      if (g.includes("Badminton")) counts.Badminton++;
 	 if (g.includes("Carrom")) counts.Carrom++;
 		 if (g.includes("Chess")) counts.Chess++;
 		 if (g.includes("Table")) counts.Table++;
@@ -119,6 +119,14 @@ async function renderGameCounts() {
       <div><strong>Football:</strong> ${counts.Football}</div>
       <div><strong>Cricket:</strong> ${counts.Cricket}</div>
       <div><strong>Badminton:</strong> ${counts.Badminton}</div>
+	 
+	<div><strong>Carrom:</strong> ${counts.Carrom}</div>
+	 <div><strong>Chess:</strong> ${counts.Chess}</div>
+   <div><strong>Table Tennis:</strong> ${counts.Table}</div>
+    <div><strong>Sprint Race:</strong> ${counts.Sprint}</div>
+	 <div><strong>Jalebi Race:</strong> ${counts.Jalebi}</div>
+
+
     `;
   } catch (err) {
     console.error(err);
